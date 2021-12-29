@@ -30,4 +30,7 @@ class User(AbstractUser):
     fav_book_genre = models.ForeignKey(
         "categories.Category", on_delete=models.SET_NULL, null=True, related_name="book_users")
     fav_movie_genre = models.ForeignKey(
-        "categories.Category", on_delete=models.SET_NULL, null=True, related_name="movie_user")
+        "categories.Category", on_delete=models.SET_NULL, null=True, related_name="movie_users")
+
+    def __str__(self):
+        return self.username
