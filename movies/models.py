@@ -15,7 +15,7 @@ class Movie(CoreModel):
         "categories.Category", on_delete=models.CASCADE, related_name="movies")
     director = models.ForeignKey(
         "people.Person", on_delete=models.CASCADE, related_name="movies")
-    cast = models.ManyToManyField("people.Person")
+    cast = models.ManyToManyField("people.Person", null=True, blank=True)
 
     def __str__(self):
         return self.title
