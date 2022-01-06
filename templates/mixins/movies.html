@@ -1,2 +1,4 @@
-<h1>{{movie.title}}</h1>
-<h3>{{movie.year}}</h3>
+<a href="{% url "movies:movie" movie.pk %}">
+    <h1>{{movie.title}}</h1>
+    <h3>{{movie.year}}</h3>
+</a>

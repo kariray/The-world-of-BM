@@ -7,6 +7,7 @@ Movies
 {% block content %}
     <div>
         <h1>Movies</h1>
+        <h3><a href="{% url "movies:create" %}">Create ></a></h3>
         {% for movie in  movies %}
             {% include "mixins/movies.html" with movie=movie%}
         {% endfor %}
