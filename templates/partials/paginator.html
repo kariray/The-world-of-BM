@@ -1,0 +1,18 @@
+<div style="text-align:center;">
+    {% if page_obj.number >= 6 %}
+        <a href="?page=1"> << </a>
+    {% endif %}
+    {% if page_obj.has_previous %}
+        <a href="?page={{page_obj.previous_page_number}}"> < </a>
+    {% endif %}
+
+    {% for page in page_obj.paginator.page_range %}
+        {% if page <= page_obj.number|add:4 and page >= page_obj.number|add:-4 %}
+            <a style="text-decoration:none;" href="?page={{forloop.counter}}">{{forloop.counter}}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{page_obj.next_page_number}}"> > </a>
+    {% endif %}
+</div>

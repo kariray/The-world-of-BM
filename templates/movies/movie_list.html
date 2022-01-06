@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 
 {% block page_title %}
-    Home
+Movies
 {% endblock page_title %}
 
 {% block content %}
     <div>
         <h1>Movies</h1>
-        {% for movie in movies %}
+        {% for movie in  movies %}
             {% include "mixins/movies.html" with movie=movie%}
         {% endfor %}
-        <a href="{% url "movies:movies" %}"> More > </a>
     </div>
+
+    {% include "partials/paginator.html" %}
 {% endblock content %}
