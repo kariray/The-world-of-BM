@@ -1,0 +1,37 @@
+{% extends "base.html"%}
+{% load static %}
+
+{% block page_title %}
+    {{book.title}}
+{% endblock page_title %}
+
+{% block content %}
+    <div class="flex my-16">
+        <div class="min-w-fit mr-16">
+            <img class="w-96 rounded-lg" src="{{book.cover_image.url}}" />
+        </div>
+
+        <div class="w-1/2 flex flex-col pt-6">
+            <h1 class="text-4xl mb-5">{{book.title}}</h1>
+            <p class="text-gray-500 mb-2"><span class="mr-3">{{book.writer}}</span>  |  <span class="ml-3">{{book.year}}</span></p>
+            <p>
+                 <span class="font-bold text-lg"><i class="fas fa-star text-maincolor text-xl mr-1"></i>{{book.rating}}</span>
+                 <span class="bg-maincolor text-white ml-3 px-2 py-1 rounded-xl">{{book.category}}</span>
+            </p>
+            <div class="mt-10 text-justify">
+                {% if book.cut_storyline.preview %}
+                    <p class="storyline">{{book.cut_storyline.preview | linebreaksbr}}
+                        <span class="dots">...</span>
+                        <span class="more-text">{{book.cut_storyline.read_more | linebreaksbr}}</span>
+                    </p>
+                    <button class="read-more-btn">Read more</button>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <a href="#">Update Movie</a>
+        <a href="#">Delete Movie</a>
+    </div>
+{% endblock content %}

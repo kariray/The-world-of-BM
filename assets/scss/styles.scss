@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.more-text {
+  @apply hidden;
+}
+.read-more-btn {
+  @apply text-blue-400 hover:text-blue-700 hover:underline;
+}
+
+.storyline.show-more .more-text {
+  @apply inline;
+}
+.storyline.show-more .dots {
+  @apply hidden;
+}
