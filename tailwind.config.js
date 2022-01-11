@@ -1,7 +1,13 @@
 module.exports = {
-  content: [],
+  purge: [],
+  darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        maincolor: "#87CEEB",
+        headercolor: "#F6FDFF",
+      },
+    },
   },
   plugins: [],
-}
+};

@@ -1,18 +1,24 @@
-<div style="text-align:center;">
+<div class="my-14 flex justify-center items-center text-gray-400">
     {% if page_obj.number >= 6 %}
-        <a href="?page=1"> << </a>
+        <a class="mx-2 px-3 py-1 border rounded hover:bg-gray-100" href="?page=1"><<</a>
+        <span>···</span>
     {% endif %}
+
     {% if page_obj.has_previous %}
-        <a href="?page={{page_obj.previous_page_number}}"> < </a>
+        <a class="mx-2 px-4 py-1 border rounded hover:bg-gray-100" href="?page={{page_obj.previous_page_number}}"> < </a>
     {% endif %}
 
     {% for page in page_obj.paginator.page_range %}
         {% if page <= page_obj.number|add:4 and page >= page_obj.number|add:-4 %}
-            <a style="text-decoration:none;" href="?page={{forloop.counter}}">{{forloop.counter}}</a>
-        {% endif %}
+            <a class="px-4 py-1 border rounded hover:bg-gray-100 
+            {% if page_obj.number == forloop.counter %}
+                bg-maincolor text-white
+            {% endif %}" 
+            href="?page={{forloop.counter}}">{{forloop.counter}}</a>
+            {% endif %}
     {% endfor %}
 
     {% if page_obj.has_next %}
-        <a href="?page={{page_obj.next_page_number}}"> > </a>
+        <a class="mx-2 px-4 py-1 border rounded hover:bg-gray-100" href="?page={{page_obj.next_page_number}}"> > </a>
     {% endif %}
 </div>

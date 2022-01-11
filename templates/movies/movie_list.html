@@ -5,9 +5,11 @@ Movies
 {% endblock page_title %}
 
 {% block content %}
-    <div>
-        <h1>Movies</h1>
-        <h3><a href="{% url "movies:create" %}">Create ></a></h3>
+    <div class="mt-6">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold text-maincolor">Movies</h1>
+            <h3 class="text-sm text-pink-400 hover:text-red-500"><a href="{% url "movies:create" %}">Create ></a></h3>
+        </div>
         {% for movie in  movies %}
             {% include "mixins/movies.html" with movie=movie%}
         {% endfor %}

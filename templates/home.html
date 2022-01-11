@@ -5,11 +5,17 @@
 {% endblock page_title %}
 
 {% block content %}
-    <div>
-        <h1>Movies</h1>
-        {% for movie in movies %}
-            {% include "mixins/movies.html" with movie=movie%}
-        {% endfor %}
+    <div class="mt-6">
+        <h1 class="text-3xl font-bold text-maincolor">Movies</h1>
+        <div class="my-3">
+            {% for movie in movies %}
+                {% include "mixins/movies.html" with movie=movie%}
+            {% endfor %}
+        </div>
         <a href="{% url "movies:movies" %}"> More > </a>
+    </div>
+
+    <div class="mt-6">
+        <h1 class="text-3xl font-bold text-maincolor">Books</h1>
     </div>
 {% endblock content %}
