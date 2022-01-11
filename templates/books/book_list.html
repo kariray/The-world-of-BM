@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+Books
+{% endblock page_title %}
+
+{% block content %}
+    <div class="mt-6">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold text-maincolor">Books</h1>
+            <h3 class="text-sm text-pink-400 hover:text-red-500"><a href="#">Create ></a></h3>
+        </div>
+        {% for book in  books %}
+            {% include "mixins/books.html" with book=book%}
+        {% endfor %}
+    </div>
+
+    {% include "partials/paginator.html" %}
+{% endblock content %}

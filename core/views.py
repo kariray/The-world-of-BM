@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from movies.models import Movie
+from books.models import Book
 
 # Create your views here.
 
@@ -7,4 +8,5 @@ from movies.models import Movie
 def home(request):
 
     movies = Movie.objects.all().order_by('-pk')[:10]
-    return render(request, "home.html", {"movies": movies, })
+    books = Book.objects.all().order_by('-pk')[:10]
+    return render(request, "home.html", {"movies": movies, "books": books, })

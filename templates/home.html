@@ -6,16 +6,26 @@
 
 {% block content %}
     <div class="mt-6">
-        <h1 class="text-3xl font-bold text-maincolor">Movies</h1>
+        <div class="flex items-center">
+            <h1 class="text-3xl font-bold text-maincolor">Movies</h1>
+            <a class="text-2xl font-bold text-maincolor ml-3 hover:text-blue-400" href="{% url "movies:movies" %}"> <i class="fas fa-chevron-right"></i> </a>
+        </div>
         <div class="my-3">
             {% for movie in movies %}
                 {% include "mixins/movies.html" with movie=movie%}
             {% endfor %}
         </div>
-        <a href="{% url "movies:movies" %}"> More > </a>
     </div>
 
     <div class="mt-6">
-        <h1 class="text-3xl font-bold text-maincolor">Books</h1>
+        <div class="flex items-center">
+            <h1 class="text-3xl font-bold text-maincolor">Books</h1>
+            <a class="text-2xl font-bold text-maincolor ml-3 hover:text-blue-400" href="{% url "books:books" %}"> <i class="fas fa-chevron-right"></i> </a>
+        </div>
+        <div class="my-3">
+            {% for book in books %}
+                {% include "mixins/books.html" with book=book%}
+            {% endfor %}
+        </div>
     </div>
 {% endblock content %}
