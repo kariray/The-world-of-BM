@@ -7,6 +7,19 @@ module.exports = {
         maincolor: "#87CEEB",
         headercolor: "#F6FDFF",
       },
+      boxShadow: {
+        readmoreShadow: "0 0 10 0 rgba(0,0,0,0.3)",
+      },
+      gridTemplateColumns: {
+        colsAutoFill: "repeat(auto-fill, minmax(16em, 1fr))",
+      },
+    },
+
+    variants: {
+      extend: {
+        filter: ["hover"],
+        blur: ["hover"],
+      },
     },
   },
   plugins: [],

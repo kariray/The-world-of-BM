@@ -1,4 +1,24 @@
-<a href="{% url "books:book" book.pk %}">
-    <h1>{{book.title}}</h1>
-    <h3>{{book.year}}</h3>
-</a>
+<div>
+    <a href="{% url "books:book" book.pk %}">
+        <div class="flex flex-col justify-center items-center">
+            <div class="w-64 h-96 relative">
+                <img class="w-64 rounded-lg filter hover:blur" src="{{book.cover_image.url}}" />
+                <p class="text-white font-bold text-lg text-center absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">{{book.title}}</p>
+            </div>
+        </div>
+
+        <div class="my-3 pl-2">
+            <p>
+                <span class="text-gray-500"><i class="fas fa-star text-maincolor mr-1"></i>{{book.rating}}</span>
+                <span class="text-sm text-blue-400 ml-1">{{book.year}}</span>
+            </p>
+            <p class="font-bold text-lg mt-1">{{book.title}}</p>       
+        </div>
+    </a>
+
+    <div class="group">
+        <a class="flex justify-center items-center py-2 my-5 border border-pink-500 rounded-lg group-hover:bg-pink-500" href="#">
+            <p class="text-pink-500 group-hover:text-white"><i class="fas fa-plus"></i><span class="ml-2">Favorite lists</span></p>
+        </a>
+    </div>
+</div>

@@ -9,6 +9,9 @@
   @apply text-blue-400 hover:text-blue-700 hover:underline;
 }
 
+.storyline.show-more {
+  @apply shadow-none;
+}
 .storyline.show-more .more-text {
   @apply inline;
 }

@@ -7,7 +7,7 @@
 
 {% block content %}
     <div class="flex my-16">
-        <div class="min-w-fit mr-16">
+        <div class="min-w-fit h-full mr-16 shadow-xl hover:shadow-2xl">
             <img class="w-96 rounded-lg" src="{{book.cover_image.url}}" />
         </div>
 
@@ -18,17 +18,27 @@
                  <span class="font-bold text-lg"><i class="fas fa-star text-maincolor text-xl mr-1"></i>{{book.rating}}</span>
                  <span class="bg-maincolor text-white ml-3 px-2 py-1 rounded-xl">{{book.category}}</span>
             </p>
-            <div class="mt-10 text-justify">
+
+            <div class="mt-10 text-justify text-gray-600 border-b border-gray-300 pb-4">
                 {% if book.cut_storyline.preview %}
                     <p class="storyline">{{book.cut_storyline.preview | linebreaksbr}}
                         <span class="dots">...</span>
                         <span class="more-text">{{book.cut_storyline.read_more | linebreaksbr}}</span>
                     </p>
                     <button class="read-more-btn">Read more</button>
+                {%else%}
+                    <p>{{book.storyline}}</p>                    
                 {% endif %}
             </div>
 
+            <div>
+                <a href="#">Add my lists</a>
+            </div>
         </div>
+    </div>
+
+    <div>
+        <h1 class="text-3xl font-bold text-maincolor">Reviews</h1>
     </div>
     <div>
         <a href="#">Update Movie</a>

@@ -20,5 +20,8 @@
     "node-sass": "^7.0.0",
     "sass": "^1.44.0",
     "tailwindcss": "^2.2.19"
+  },
+  "dependencies": {
+    "tailwindcss-interaction-variants": "^5.0.0"
   }
 }
