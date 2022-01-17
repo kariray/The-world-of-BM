@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Create Book
+{% endblock page_title %}
+
+{% block content %}
+    <h1 class="my-8 text-3xl font-bold text-maincolor">Create Book infomation</h1>
+    {% include 'mixins/form.html' with form=form cta="Save" %}
+{% endblock content %}

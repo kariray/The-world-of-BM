@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.shortcuts import render, redirect, reverse
+from django.views.generic import ListView, DetailView, CreateView
 from books.models import Book
 
 
@@ -19,3 +19,21 @@ class BookDetail(DetailView):
 
     model = Book
     context_object_name = "book"
+
+
+class BookCreate(CreateView):
+    """ Create new books"""
+    model = Book
+    fields = {
+        "title",
+        "year",
+        "rating",
+        "cover_image",
+        "category",
+        "writer",
+        "storyline",
+    }
+
+    def get_success_url(self):
+        book_pk = self.object.id
+        return reverse("books:book", kwargs={"pk": book_pk})
