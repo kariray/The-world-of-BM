@@ -32,3 +32,6 @@ html {
 .scroll-hidden {
   @apply overflow-hidden;
 }
+.blur {
+  @apply filter blur-lg;
+}
