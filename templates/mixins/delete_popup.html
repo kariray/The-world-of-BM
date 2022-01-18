@@ -1,0 +1,21 @@
+<div id="delete_popup" class="popup">
+    <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-3/4 h-1/4 max-w-1/3 max-h-1/4 border border-maincolor bg-white">
+        <div class="flex flex-col justify-around items-center w-full h-full py-10">
+            <p class="font-bold text-lg">Are you sure you want to delete?</p>
+            <div class="w-full flex justify-end pr-5">
+                <button onclick="ClosePopup()" class="bg-gray-100 mr-3 py-1 px-5 rounded-lg italic text-gray-600 hover:shadow-lg">
+                    No
+                </button>
+
+                <form method="post" action="{% url 'books:delete' book.pk %}">
+                    {% csrf_token %}
+                    <a href="{% url "books:delete" book.pk %}">
+                        <button class="bg-red-500 border border-red-500 py-1 px-4 rounded-lg text-white font-bold hover:bg-white hover:text-red-500">
+                            Yes, I delete
+                        </button>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

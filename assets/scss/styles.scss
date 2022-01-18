@@ -22,3 +22,13 @@ html {
 .storyline.show-more .dots {
   @apply hidden;
 }
+
+.popup {
+  @apply hidden;
+}
+.show-popup {
+  @apply inline;
+}
+.scroll-hidden {
+  @apply overflow-hidden;
+}

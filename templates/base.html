@@ -10,7 +10,7 @@
         {% block page_title %}{% endblock page_title %} | The world of BM
     </title>
   </head>
-  <body>
+  <body class=" h-screen">
     {% include "partials/header.html" %}
     <main class="px-6">
       {% block content %} 
@@ -25,4 +25,5 @@
   </body>
   <script src="https://kit.fontawesome.com/aea9b7ed9f.js" crossorigin="anonymous"></script>
   <script src="{% static 'js/readmore.js' %}"></script>
+  <script src="{% static 'js/popup.js' %}"></script>
 </html>
