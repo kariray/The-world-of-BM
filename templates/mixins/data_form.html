@@ -1,0 +1,38 @@
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            <span>{{error}}</span>
+        {% endfor %}
+    {% endif %}
+
+    <div class="border border-gray-200 p-8">
+        {% for field in form %}
+            <dl class="flex mb-5">
+                <dt class="w-28 text-gray-500 font-bold" for="{{field.auto_id}}">
+                    {{field.label}}
+                    {% if field.field.required %}
+                        <span class="text-red-500">*</span>
+                    {% endif %}
+                </dt>
+                <dd class="text-gray-700
+                {% if field.field.widget.input_type == 'text' %}w-1/2 border shadow-sm
+                {% elif field.field.widget.input_type == 'number' %}w-1/4 border shadow-sm
+                {% elif field.field.widget.input_type == 'select' %}w-1/4
+                {% elif field.field.widget.input_type == None %}w-full border shadow-sm
+                {% endif %}">
+                    {{field}}
+                </dd>
+            </dl>
+            {% if field.errors %}
+                {% for error in field.errors %}
+                    <span class="text-red-700 font-medium text-sm">{{error}}</span>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <button class="my-6 mr-2 bg-maincolor p-3 rounded-lg text-white hover:bg-blue-400">{{cta}}</button>
+    <a href="{% url 'books:books' %}" class="my-6 bg-gray-200 px-3 py-4 rounded-lg text-gray-800 hover:shadow-md">Close</a>
+</form>

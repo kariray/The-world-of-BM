@@ -17,7 +17,14 @@
         <div class="flex my-8">
             <!-- draw cover image -->
             <div class="min-w-fit h-full mr-16 shadow-xl hover:shadow-2xl">
-                <img class="w-96 rounded-lg" src="{{book.cover_image.url}}" />
+                {% if book.cover_image %}
+                    <img class="w-96 rounded-lg" src="{{book.cover_image.url}}" />
+                {%else%}
+                    <div class="w-96 h-96 rounded-lg bg-gray-300 flex justify-center items-center">
+                        <p class="text-white text-3xl">No image</p>
+                    </div>
+                {% endif %}
+                
             </div>
 
             <!-- show infomation (title, storyline, year, rating...)-->
@@ -53,7 +60,7 @@
         <div class="flex">
             <!-- Update Button -->
             <div class="group mr-3 mb-5">
-                <a class="flex justify-center items-center px-2 py-2 border border-green-500 rounded-lg group-hover:bg-green-500" href="#">
+                <a class="flex justify-center items-center px-2 py-2 border border-green-500 rounded-lg group-hover:bg-green-500" href="{% url 'books:update' book.pk%}">
                     <p class="text-green-500 group-hover:text-white">Update</p>
                 </a>
             </div>

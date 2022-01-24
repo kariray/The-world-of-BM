@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    Update Book
+{% endblock page_title %}
+
+{% block content %}
+    <h1 class="my-8 text-3xl font-bold text-maincolor">Update {{book.title}} infomation</h1>
+    {% include 'mixins/data_form.html' with form=form cta="Update" %}
+{% endblock content %}

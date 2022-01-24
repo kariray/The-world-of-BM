@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, reverse
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, DeleteView
+from django.views.generic import ListView, DetailView, FormView, DeleteView, UpdateView
 from books.models import Book
+from . import forms
 
 
 # Create your views here.
@@ -22,22 +23,34 @@ class BookDetail(DetailView):
     context_object_name = "book"
 
 
-class BookCreate(CreateView):
+class BookCreate(FormView):
     """ Create new books"""
-    model = Book
-    fields = {
-        "title",
-        "year",
-        "rating",
-        "cover_image",
-        "category",
-        "writer",
-        "storyline",
-    }
+    form_class = forms.CreateBookForm
+    template_name = "books/book_create.html"
 
-    def get_success_url(self):
-        book_pk = self.object.id
-        return reverse("books:book", kwargs={"pk": book_pk})
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            print(form['title'])
+            book = form.save()
+            book.save()
+            return redirect(reverse("books:book", kwargs={"pk": book.pk}))
+        else:
+            print(form.errors)
+            return render(request, "books/book_create.html", {"form": form})
+
+
+class BookUpdate(UpdateView):
+    model = Book
+    template_name = "books/book_update.html"
+    success_url = reverse_lazy("books:books")
+    fields = ("title",
+              "year",
+              "rating",
+              "cover_image",
+              "category",
+              "writer",
+              "storyline",)
 
 
 class BookDelete(DeleteView):
