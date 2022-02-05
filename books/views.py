@@ -28,15 +28,19 @@ class BookCreate(FormView):
     form_class = forms.CreateBookForm
     template_name = "books/book_create.html"
 
+    def get(self, request):
+        form = self.get_form()
+        return render(request, "books/book_create.html", {"form": form})
+
     def post(self, request, *args, **kwargs):
         form = self.get_form()
         if form.is_valid():
-            print(form['title'])
+
             book = form.save()
             book.save()
             return redirect(reverse("books:book", kwargs={"pk": book.pk}))
         else:
-            print(form.errors)
+
             return render(request, "books/book_create.html", {"form": form})
 
 

@@ -11,19 +11,16 @@
     </title>
   </head>
   <body class="h-screen">
-    {% include "partials/header.html" %}
     <main class="px-6">
+        <div class="container flex justify-center items-center max-w-full my-16">
+            <a href="{% url 'core:home' %}">
+                <img src="{% static 'img/logo.png' %}" />
+            </a>
+        </div>
       {% block content %} 
       {% endblock content %}
     </main>
-    <a href="#header">
-      <div class="w-10 h-10 fixed bottom-5 right-8 flex justify-center items-center rounded-full bg-white shadow-lg animate-bounce">
-        <i class="fas fa-angle-up text-maincolor"></i>
-      </div>
-    </a>
-    {% include "partials/footer.html" %}
+
   </body>
   <script src="https://kit.fontawesome.com/aea9b7ed9f.js" crossorigin="anonymous"></script>
-  <script src="{% static 'js/readmore.js' %}"></script>
-  <script src="{% static 'js/popup.js' %}"></script>
 </html>

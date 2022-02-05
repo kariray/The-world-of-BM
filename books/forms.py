@@ -41,10 +41,11 @@ class CreateBookForm(forms.ModelForm):
 
         title = self.cleaned_data.get("title")
 
-        if not len(title):
-            raise forms.ValidationError("Title is not empty!")
-
-        return cleaned_data
+        if len(title) > 0:
+            return self.cleaned_data
+        else:
+            self.add_error("title", forms.ValidationError(
+                "title is not empty."))
 
     # def save(self, *args, **kwargs):
     #     book = super().save(commit=False)

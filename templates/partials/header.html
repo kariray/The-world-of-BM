@@ -1,4 +1,16 @@
 {% load static %}
-<header id="header" class="container max-w-full px-6 bg-headercolor">
-    <a href="{% url 'core:home' %}"><img src="{% static 'img/logo.png' %}" /></a>
+<header id="header" class="container flex justify-between items-center max-w-full px-6 bg-headercolor">
+    <a href="{% url 'core:home' %}">
+        <img src="{% static 'img/logo.png' %}" />
+    </a>
+
+    <div class="mr-2">
+        {% if user.is_authenticated %}
+            <a class="mr-3 text-gray-500" href="#">Log out</a>
+            <a class=" text-gray-500 font-bold" href="#">My page</a>
+        {%else%}
+            <a class="mr-3 text-gray-500" href="{% url 'users:login'%}">Log in</a>
+            <a class=" text-gray-500 font-bold" href="#">Sign up</a>
+        {% endif %}
+    </div>
 </header>
