@@ -1,18 +1,16 @@
 {% extends 'users/login_signup_base.html' %}
 
 {% block page_title %}
-    Login
+    Sign up
 {% endblock page_title %}
 
 {% block content %}
 
-    {% include 'mixins/login_form.html' with form=form cta="Log in" %}
+    {% include 'mixins/signup_user_form.html' with form=form cta="Sign Up" %}
     <div class="my-10 flex justify-center text-gray-400">
         <span>Forgot your <a class="underline" href="#">Password</a> or <a class="underline" href="#">Username?</a></span>
         <span class="px-3 text-gray-300">|</span>
-        <span class="underline"><a href="{% url 'users:signup' %}">Sign up</a></span>
+        <span class="underline"><a href="#">Login</a></span>
     </div>
-    <div>
-        <span>Naver</span>
-    </div>
+
 {% endblock content %}

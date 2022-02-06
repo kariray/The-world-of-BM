@@ -10,7 +10,7 @@
             <a class=" text-gray-500 font-bold" href="#">My page</a>
         {%else%}
             <a class="mr-3 text-gray-500" href="{% url 'users:login'%}">Log in</a>
-            <a class=" text-gray-500 font-bold" href="#">Sign up</a>
+            <a class=" text-gray-500 font-bold" href="{% url 'users:signup'%}">Sign up</a>
         {% endif %}
     </div>
 </header>
