@@ -23,6 +23,8 @@ class User(AbstractUser):
     )
 
     bio = models.TextField()
+    avatar = models.ImageField(
+        null=True, blank=True, upload_to="user_avatar")
     preference = models.CharField(
         max_length=10, choices=PREF_CHOICES, default=PREF_MOVIES)
     language = models.CharField(
