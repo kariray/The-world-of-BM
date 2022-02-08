@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect, reverse
 from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.views import View
-from django.views.generic import FormView
+from django.views.generic import FormView, DetailView
 from users.forms import LoginForm, SignUpForm
+from users.models import User
 
 # Create your views here.
 
@@ -53,3 +54,10 @@ class SignupView(FormView):
         if user is not None:
             login(self.request, user)
         return super().form_valid(form)
+
+
+class MypageView(DetailView):
+    """Show user's my page."""
+    model = User
+    template_name = "users/my_page.html"
+    context_object_name = "user_obj"
