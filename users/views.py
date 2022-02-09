@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.views import View
 from django.views.generic import FormView, DetailView, UpdateView
+from django.contrib.auth.views import PasswordChangeView
 from users.forms import LoginForm, SignUpForm
 from users.models import User
 
@@ -84,3 +85,9 @@ class EditProfileView(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy("users:mypage", kwargs={"pk": self.object.pk})
+
+
+class ChangePasswordView(PasswordChangeView):
+    """Change user's password"""
+    template_name = "users/change_password.html"
+    success_url = reverse_lazy("core:home")

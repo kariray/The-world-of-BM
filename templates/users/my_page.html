@@ -57,6 +57,10 @@
                     <p class="text-green-500 group-hover:text-white">Edit my profile</p>
                 </a>
             </div>
+
+            <div class="my-10 flex justify-center text-gray-400">
+                <span>Change your <a class="underline text-red-400" href="{% url 'users:change_password' %}">Password</a></span>
+            </div>
         {% endif %}
     </main>
 {% endblock mypage %}
