@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.views import View
-from django.views.generic import FormView, DetailView
+from django.views.generic import FormView, DetailView, UpdateView
 from users.forms import LoginForm, SignUpForm
 from users.models import User
 
@@ -61,3 +61,26 @@ class MypageView(DetailView):
     model = User
     template_name = "users/my_page.html"
     context_object_name = "user_obj"
+
+
+class EditProfileView(UpdateView):
+    """Edit user's profile"""
+    model = User
+    template_name = "users/update_profile.html"
+    context_object_name = "user_obj"
+    fields = (
+        "first_name",
+        "last_name",
+        "bio",
+        "avatar",
+        "preference",
+        "language",
+        "fav_book_genre",
+        "fav_movie_genre",
+    )
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def get_success_url(self):
+        return reverse_lazy("users:mypage", kwargs={"pk": self.object.pk})

@@ -5,8 +5,12 @@
 {% endblock page_title %}
 
 {% block mypage %}
-    <main class="w-full h-full">
-        <div class="flex flex-col items-center bg-gradient-to-r from-maincolor to-blue-500 py-10">
+    <main>
+        <!-- user avatar, name, email section -->
+        <div class="flex flex-col items-center bg-gradient-to-r from-maincolor to-blue-500 py-10 pb-36">
+            <div class="my-10 border-2 rounded-full">
+                {% include "mixins/user_avatar.html" with user=user_obj %}
+            </div>
             <span class="text-3xl font-bold text-white">{{user_obj.first_name}} {{user_obj.last_name}}</span>
             <span class="text-white"><i class="far fa-envelope mr-1"></i>{{user_obj.email}}</span>
         </div>
@@ -49,7 +53,7 @@
         <!--Edit profile button-->
         {% if user == user_obj%}
             <div class="group mr-3 mb-5">
-                <a class="flex justify-center items-center px-2 py-2 border border-green-500 rounded-lg group-hover:bg-green-500" href="#">
+                <a class="flex justify-center items-center px-2 py-2 border border-green-500 rounded-lg group-hover:bg-green-500" href="{% url 'users:update_profile'%}">
                     <p class="text-green-500 group-hover:text-white">Edit my profile</p>
                 </a>
             </div>
