@@ -14,12 +14,11 @@ module.exports = {
         colsAutoFill: "repeat(auto-fill, minmax(16em, 1fr))",
       },
     },
-
-    variants: {
-      extend: {
-        filter: ["hover"],
-        blur: ["hover"],
-      },
+  },
+  variants: {
+    extend: {
+      brightness: ["hover", "group-hover"],
+      visibility: ["hover", "group-hover"],
     },
   },
   plugins: [],

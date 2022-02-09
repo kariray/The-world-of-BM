@@ -1,12 +1,12 @@
 <div>
     <a href="{% url "books:book" book.pk %}">
         <div class="flex flex-col justify-center items-center">
-            <div class="w-64 h-96 relative">
+            <div class="w-64 h-96 relative group">
                 {% if book.cover_image %}
-                    <img class="w-64 rounded-lg filter hover:blur" src="{{book.cover_image.url}}" />
-                    <p class="text-white font-bold text-lg text-center absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">{{book.title}}</p>         
+                    <img class="w-64 rounded-lg filter group-hover:brightness-50" src="{{book.cover_image.url}}" />
+                    <p class="text-white font-bold text-lg text-center absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 invisible group-hover:visible">{{book.title}}</p>         
                 {% else %}
-                    <div class="w-64 h-96 rounded-lg bg-gray-300 flex flex-col justify-center items-center">
+                    <div class="w-64 h-96 rounded-lg bg-gray-300 flex flex-col justify-center items-center filter hover:brightness-50">
                         <p class="text-white text-4xl"><i class="far fa-image"></i></p>
                         <p class="text-white text-3xl">No image</p>
                     </div>
