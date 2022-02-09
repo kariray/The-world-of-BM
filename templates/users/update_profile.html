@@ -4,5 +4,8 @@
 {% endblock page_title %}
 
 {% block content %}
-    {% include 'mixins/signup_user_form.html' with form=form cta="Update profile" %}
+    <div class="m-8">
+        <h1 class="text-3xl font-bold text-maincolor mb-8">Profile update</h1>
+        {% include 'mixins/signup_user_form.html' with form=form cta="Update profile" %}
+    </div>
 {% endblock content %}
